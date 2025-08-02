@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Results - English Grammar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .results-page {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+        
+        .results-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(#10b981 0deg, #10b981 0deg, #e5e7eb 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .results-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .result-item {
+            text-align: center;
+        }
+        
+        .result-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+        
+        .result-item p {
+            color: #6b7280;
+        }
+        
+        .performance-feedback {
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .feedback-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .feedback-text {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+        
+        .share-results {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+        
+        .share-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .share-btn.facebook {
+            background: #1877f2;
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.linkedin {
+            background: #0077b5;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .results-card {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .score-circle {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .score-circle::before {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .score-text {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Yasser</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#exams" class="nav-link">Available Tests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Results Page -->
+    <section class="results-page">
+        <div class="container">
+            <div class="results-card">
+                <h1>Exam Results</h1>
+                <p style="color: #6b7280; margin-bottom: 2rem;">Here are your exam results</p>
+                
+                <div class="score-circle" id="score-circle">
+                    <div class="score-text" id="score-text">0%</div>
+                </div>
+                
+                <h2 id="exam-title">Loading...</h2>
+                <p id="exam-subtitle" style="color: #6b7280; margin-bottom: 2rem;">Loading results...</p>
+                
+                <div class="results-details">
+                    <div class="result-item">
+                        <h4>Score</h4>
+                        <p id="score-display">0/0</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>Percentage</h4>
+                        <p id="percentage-display">0%</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>Time Taken</h4>
+                        <p id="time-display">0 min</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>Status</h4>
+                        <p id="status-display">Loading...</p>
+                    </div>
+                </div>
+                
+                <div class="performance-feedback" id="feedback-section">
+                    <div class="feedback-title">Performance Feedback</div>
+                    <div class="feedback-text" id="feedback-text">
+                        Loading feedback...
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="index.html#exams" class="btn btn-primary btn-large">
+                        <i class="fas fa-redo"></i> Take Another Exam
+                    </a>
+                    <a href="index.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="results.js"></script>
+</body>
+</html> 

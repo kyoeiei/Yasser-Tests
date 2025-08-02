@@ -1,0 +1,19 @@
+{
+  "name": "exam-portal",
+  "version": "1.0.0",
+  "description": "A modern online exam platform with beautiful UI",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT",
+    "dev": "npx serve -s . -l 3000"
+  },
+  "keywords": ["exam", "education", "online-testing", "web-app"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+} 

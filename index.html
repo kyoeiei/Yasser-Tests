@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasser test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-language"></i>
+                <span>Yasser Pre/Post test </span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#exams" class="nav-link">Available Tests</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">English Grammar Tenses Pre/Post Test</h1>
+                <p class="hero-subtitle">Test your knowledge of Present Simple, Past Simple, and Future Simple tenses</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>3 Tenses</span>
+                        <p>Covered</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-file-alt"></i>
+                        <span>2 Tests</span>
+                        <p>Pre & Post</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Progress</span>
+                        <p>Tracked</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#exams" class="btn btn-primary">Start Assessment</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-language"></i>
+                    <h3>Grammar Focus</h3>
+                    <p>Master English tenses</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Progress</h3>
+                    <p>See your improvement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Exams Section -->
+    <section id="exams" class="exams-section">
+        <div class="container">
+            <h2 class="section-title">Available Tests</h2>
+            <div class="exams-grid">
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3>Pre-Test</h3>
+                    <p>Test your current knowledge of English grammar tenses (Present, Past, Future Simple)</p>
+                    <div class="exam-details">
+                        <span><i class="fas fa-clock"></i> 30 minutes</span>
+                        <span><i class="fas fa-question-circle"></i> 20 questions</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startExam('pretest')">Start Pre-Test</button>
+                </div>
+                
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Post-Test</h3>
+                    <p>Evaluate your progress after learning the three simple tenses</p>
+                    <div class="exam-details">
+                        <span><i class="fas fa-clock"></i> 30 minutes</span>
+                        <span><i class="fas fa-question-circle"></i> 20 questions</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="startExam('posttest')">Start Post-Test</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html> 
