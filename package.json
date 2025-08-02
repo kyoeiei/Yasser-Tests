@@ -1,19 +1,26 @@
 {
-  "name": "exam-portal",
+  "name": "yasser-grammar-test",
   "version": "1.0.0",
-  "description": "A modern online exam platform with beautiful UI",
-  "main": "index.html",
+  "description": "Yasser's English Grammar Tenses Pre/Post Test Platform",
+  "main": "app.js",
   "scripts": {
-    "start": "npx serve -s . -l $PORT",
-    "dev": "npx serve -s . -l 3000"
+    "start": "node app.js",
+    "dev": "node app.js",
+    "build": "echo 'Static site - no build required'",
+    "test": "echo 'No tests specified'"
   },
-  "keywords": ["exam", "education", "online-testing", "web-app"],
-  "author": "Your Name",
+  "keywords": ["grammar", "education", "online-testing", "english", "tenses"],
+  "author": "Yasser",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.18.2",
     "serve": "^14.2.1"
   },
   "engines": {
     "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "your-github-repo-url-here"
   }
 } 

@@ -1,8 +1,12 @@
 services:
   - type: web
-    name: exam-portal
+    name: yasser-grammar-test
     env: node
     buildCommand: npm install
     startCommand: npm start
     plan: free
-    healthCheckPath: / 
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true 
