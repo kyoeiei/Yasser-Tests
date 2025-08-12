@@ -58,6 +58,11 @@ function displayResults(results) {
     
     // Update feedback
     updateFeedback(score.percentage);
+
+    // If post-test, render detailed review
+    if (examType === 'posttest') {
+        renderDetailedReview(results);
+    }
 }
 
 function updateScoreCircle(percentage) {
@@ -132,6 +137,72 @@ function updateFeedback(percentage) {
     }
     
     feedbackText.innerHTML = feedback;
+}
+
+function renderDetailedReview(results) {
+    const { questions = [], answers = {} } = results;
+    const reviewSection = document.getElementById('review-section');
+    const reviewList = document.getElementById('review-list');
+    const reviewSummary = document.getElementById('review-summary');
+
+    if (!reviewSection || !reviewList) return;
+
+    reviewSection.style.display = 'block';
+
+    // Summary
+    const total = questions.length;
+    let incorrectCount = 0;
+
+    reviewList.innerHTML = '';
+
+    questions.forEach((q, index) => {
+        const userChoiceIndex = answers[index];
+        const correctIndex = q.correct;
+        const isCorrect = userChoiceIndex === correctIndex;
+        if (!isCorrect) incorrectCount++;
+
+        const container = document.createElement('div');
+        container.className = `question-review ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        // Title
+        const title = document.createElement('div');
+        title.className = 'question-title';
+        title.textContent = `Q${index + 1}. ${q.question}`;
+        container.appendChild(title);
+
+        // Answers row
+        const answersRow = document.createElement('div');
+        answersRow.className = 'answer-row';
+
+        // User answer chip
+        const userChip = document.createElement('div');
+        userChip.className = `answer-chip ${isCorrect ? 'correct' : 'incorrect'}`;
+        const userIcon = document.createElement('i');
+        userIcon.className = `fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}`;
+        const userText = document.createElement('span');
+        userText.textContent = `Your answer: ${userChoiceIndex !== undefined ? q.options[userChoiceIndex] : 'No answer'}`;
+        userChip.appendChild(userIcon);
+        userChip.appendChild(userText);
+        answersRow.appendChild(userChip);
+
+        // Correct answer chip (show only if incorrect or unanswered)
+        if (!isCorrect) {
+            const correctChip = document.createElement('div');
+            correctChip.className = 'answer-chip correct';
+            const correctIcon = document.createElement('i');
+            correctIcon.className = 'fas fa-lightbulb';
+            const correctText = document.createElement('span');
+            correctText.textContent = `Correct: ${q.options[correctIndex]}`;
+            correctChip.appendChild(correctIcon);
+            correctChip.appendChild(correctText);
+            answersRow.appendChild(correctChip);
+        }
+
+        container.appendChild(answersRow);
+        reviewList.appendChild(container);
+    });
+
+    reviewSummary.textContent = `${total - incorrectCount} correct, ${incorrectCount} incorrect`;
 }
 
 function shareResults(platform) {

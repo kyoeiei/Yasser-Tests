@@ -232,11 +232,12 @@ function confirmSubmit() {
     // Calculate score
     const score = calculateScore();
     
-    // Store results
+    // Store results including the questions used so we can show a detailed review
     localStorage.setItem('examResults', JSON.stringify({
         examType: localStorage.getItem('examType'),
         score: score,
         answers: userAnswers,
+        questions: currentExam ? currentExam.questions : [],
         timeTaken: Math.floor((Date.now() - examStartTime) / 1000),
         submittedAt: new Date().toISOString()
     }));

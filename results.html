@@ -128,6 +128,65 @@
             justify-content: center;
             flex-wrap: wrap;
         }
+
+        /* Review styles */
+        .review-section {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .question-review {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .question-review.correct {
+            border-left-color: #10b981;
+            background: #ecfdf5;
+        }
+        .question-review.incorrect {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        .question-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        .answer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            color: #374151;
+        }
+        .answer-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            background: #f3f4f6;
+            font-size: 0.95rem;
+        }
+        .answer-chip.correct {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .answer-chip.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .muted {
+            color: #6b7280;
+        }
         
         .share-btn {
             padding: 0.75rem 1.5rem;
@@ -244,6 +303,15 @@
                     <div class="feedback-text" id="feedback-text">
                         Loading feedback...
                     </div>
+                </div>
+
+                <!-- Post-Test Detailed Review -->
+                <div id="review-section" class="review-section" style="display: none;">
+                    <div class="review-header">
+                        <div class="feedback-title">Detailed Review (Post-Test)</div>
+                        <div class="muted" id="review-summary"></div>
+                    </div>
+                    <div id="review-list"></div>
                 </div>
                 
                 <div class="action-buttons">
